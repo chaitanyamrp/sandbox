@@ -6,14 +6,12 @@ q = Queue.Queue()
 class listener(object):
     def __init__(self):
         thread = threading.Thread(target=self.loop)
-        thread.daemon = True
+        # thread.daemon = True
         thread.start()
 
     def loop(self):
         for i in xrange(0,13):
             q.put(i)
-            if i==10:
-                break
 
 class ui(object):
     def __init__(self):
